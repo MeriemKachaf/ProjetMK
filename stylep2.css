@@ -1,0 +1,231 @@
+:root {
+    --primary: #0d0d0d;
+    --accent: #c2185b;
+    --accent-light: #fce4ec;
+    --bg: #f7f7f7;
+    --white: #ffffff;
+    --text: #2d2d2d;
+    --text-light: #666;
+    --border: #e0e0e0;
+    --shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+    --transition: 0.3s ease;
+    --font: 'Segoe UI', Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font);
+    color: var(--text);
+    background-color: var(--bg);
+    line-height: 1.6;
+}
+
+/* ── HEADER ── */
+header {
+    background-color: var(--primary);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent-light);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.92rem;
+    transition: background-color var(--transition), color var(--transition);
+    display: block;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--accent);
+    color: white;
+}
+
+/* ── MAIN ── */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px 60px;
+}
+
+/* ── PAGE INTRO ── */
+.page-intro {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.page-intro h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.page-intro p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ── NEWS LIST ── */
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.news-item {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.13);
+}
+
+.news-img-wrapper {
+    height: 220px;
+    overflow: hidden;
+}
+
+.news-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition);
+}
+
+.news-item:hover .news-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.news-img-placeholder {
+    height: 220px;
+    background: linear-gradient(135deg, var(--accent-light), #f8bbd0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+}
+
+.news-body {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.news-body h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+}
+
+.news-body p {
+    font-size: 0.92rem;
+    color: var(--text-light);
+    margin-bottom: 18px;
+    flex: 1;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 600;
+    transition: background-color var(--transition), transform var(--transition);
+    align-self: flex-start;
+}
+
+.btn:hover {
+    background-color: #9c1448;
+    transform: translateY(-2px);
+}
+
+/* ── FOOTER ── */
+footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 28px 20px;
+}
+
+.footer-brand {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--accent-light);
+    margin-bottom: 6px;
+}
+
+footer p {
+    font-size: 0.88rem;
+    opacity: 0.8;
+    margin: 4px 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+    .header-inner {
+        flex-direction: column;
+        height: auto;
+        padding: 14px 20px;
+        gap: 10px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
